@@ -1,8 +1,10 @@
 use bevy::prelude::*;
-use avian2d::prelude::*;
+use avian3d::prelude::*;
 
-pub mod ship;
-use ship::ShipPlugin;
+mod player;
+use player::*;
+
+mod scene;
 
 pub struct GamePlugin;
 
@@ -10,14 +12,9 @@ impl Plugin for GamePlugin
 {
     fn build(&self, app: &mut App) {
         app
-            .add_plugins(ShipPlugin)
+            .add_plugins(PlayerPlugin)
             .add_plugins(PhysicsPlugins::default())
             .add_plugins(PhysicsDebugPlugin::default())
-            .add_systems(Startup, add_camera);
+            .add_systems(Startup, scene::add_test_scene);
     }
-}
-
-fn add_camera(mut commands: Commands)
-{
-    commands.spawn(Camera2d);
 }
