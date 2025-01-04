@@ -1,33 +1,8 @@
 use bevy::prelude::*;
-
-mod components;
-pub use components::*;
 use leafwing_input_manager::prelude::*;
+use crate::components::player_camera::{PlayerCamera, PlayerCameraControls, PlayerCameraPivot};
 
-use super::setup_player;
-
-pub struct PlayerCameraPlugin;
-
-#[derive(Actionlike, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Reflect, Debug, Hash)]
-pub enum CameraControls {
-    #[actionlike(DualAxis)]
-    Rotate,
-    #[actionlike(Axis)]
-    Zoom,
-}
-
-impl Plugin for PlayerCameraPlugin
-{
-    fn build(&self, app: &mut App) {
-        app
-            .add_plugins(InputManagerPlugin::<CameraControls>::default())
-            .add_systems(PreUpdate, setup_player_camera.after(setup_player))
-            .add_systems(Update, player_camera_zoom)
-            .add_systems(Update, player_camera_rotate);
-    }
-}
-
-fn setup_player_camera(
+pub fn setup_player_camera(
     mut commands: Commands,
     mut query: Query<(Entity, &Parent, &mut PlayerCamera, &mut Transform), Added<PlayerCamera>>,
 )
@@ -38,8 +13,8 @@ fn setup_player_camera(
         info!("Setting up camera entity {}", newcam);
 
         let input_map = InputMap::default()
-            .with_dual_axis(CameraControls::Rotate, MouseMove::default())
-            .with_axis(CameraControls::Zoom, MouseScrollAxis::Y);
+            .with_dual_axis(PlayerCameraControls::Rotate, MouseMove::default())
+            .with_axis(PlayerCameraControls::Zoom, MouseScrollAxis::Y);
 
         commands.entity(parent.get())
             .remove_children(&[newcam]);
@@ -57,14 +32,14 @@ fn setup_player_camera(
     }
 }
 
-fn player_camera_rotate(
-    cam_query: Query<(&ActionState<CameraControls>, &PlayerCamera)>,
+pub fn player_camera_rotate(
+    cam_query: Query<(&ActionState<PlayerCameraControls>, &PlayerCamera)>,
     mut pivot_query: Query<&mut Transform, With<PlayerCameraPivot>>
 )
 {
     for (action_state, camera) in cam_query.iter()
     {
-        let rotation = action_state.dual_axis_data(&CameraControls::Rotate).map(|axis| axis.update_pair);
+        let rotation = action_state.dual_axis_data(&PlayerCameraControls::Rotate).map(|axis| axis.update_pair);
         if rotation.is_none()
             { continue; }
         let rotation = -rotation.unwrap();
@@ -79,13 +54,13 @@ fn player_camera_rotate(
     }
 }
 
-fn player_camera_zoom(
-    mut cam_query: Query<(&mut Transform, &ActionState<CameraControls>), With<PlayerCamera>>,
+pub fn player_camera_zoom(
+    mut cam_query: Query<(&mut Transform, &ActionState<PlayerCameraControls>), With<PlayerCamera>>,
 )
 {
     for (mut xform, action_state) in cam_query.iter_mut()
     {
-        let zoom_val = -action_state.value(&CameraControls::Zoom);
+        let zoom_val = -action_state.value(&PlayerCameraControls::Zoom);
         if zoom_val != 0.0
             { info!("Zoom: {}", zoom_val); }
         xform.translation.z += zoom_val;

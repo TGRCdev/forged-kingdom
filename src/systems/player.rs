@@ -1,21 +1,10 @@
-use avian3d::prelude::*;
 use bevy::prelude::*;
+use avian3d::prelude::*;
 
-mod components;
-use camera::{PlayerCamera, PlayerCameraPlugin};
-pub use components::*;
-
-pub mod camera;
-
-pub struct PlayerPlugin;
-
-impl Plugin for PlayerPlugin
-{
-    fn build(&self, app: &mut bevy::prelude::App) {
-        app.add_systems(PreUpdate, setup_player)
-            .add_plugins(PlayerCameraPlugin);
-    }
-}
+use crate::components::{
+    player::Player,
+    player_camera::PlayerCamera
+};
 
 pub fn setup_player(
     mut commands: Commands,
