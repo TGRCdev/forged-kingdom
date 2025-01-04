@@ -1,8 +1,9 @@
 use bevy::prelude::*;
 use leafwing_input_manager::prelude::*;
 
-#[derive(Component, Default, Debug)]
+#[derive(Component, Reflect, Clone, Default, Debug)]
 #[require(Camera3d)]
+#[reflect(opaque)]
 pub struct PlayerCamera {
     pub pivot: Option<Entity>,
 }

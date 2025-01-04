@@ -1,2 +1,5 @@
 /target
 .direnv
+
+# Blender
+*.blend1

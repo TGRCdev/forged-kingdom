@@ -1,11 +1,16 @@
 use super::*;
-use bevy::app::plugin_group;
+use bevy::app::{PluginGroup, PluginGroupBuilder};
 
-plugin_group! {
-    /// Contains all of the plugins required for the game, excluding [DefaultPlugins](bevy::prelude::DefaultPlugins).
-    pub struct GamePlugins
-    {
-        player_camera:::PlayerCameraPlugin,
-        player:::PlayerPlugin,
+pub struct GamePlugins;
+
+impl PluginGroup for GamePlugins
+{
+    fn build(self) -> PluginGroupBuilder {
+        PluginGroupBuilder::start::<GamePlugins>()
+            .add(player::PlayerPlugin)
+            .add(player_camera::PlayerCameraPlugin)
+            .add_group(avian3d::PhysicsPlugins::default())
+            .add(blenvy::BlenvyPlugin::default())
+            .add(scene::ScenePlugin)
     }
 }
