@@ -7,7 +7,8 @@
 linker = "clang"
 rustflags = [
     "-C", "link-arg=-fuse-ld=lld",
-    "-Zshare-generics=y"
+    "-Zshare-generics=y",
+    "link-arg=--ld-path=mold",
 ]
 
 # Optional: Uncommenting the following improves compile times, but reduces the amount of debug info to 'line number tables only'

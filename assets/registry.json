@@ -20275,6 +20275,43 @@
       "type": "string",
       "typeInfo": "Enum"
     },
+    "forged_kingdom::components::player_camera::SpawnPlayerCamera": {
+      "additionalProperties": false,
+      "isComponent": true,
+      "isResource": false,
+      "long_name": "forged_kingdom::components::player_camera::SpawnPlayerCamera",
+      "properties": {
+        "move_lerp_speed": {
+          "type": {
+            "$ref": "#/$defs/f32"
+          }
+        },
+        "offset": {
+          "type": {
+            "$ref": "#/$defs/glam::Vec3"
+          }
+        },
+        "rotate_lerp_speed": {
+          "type": {
+            "$ref": "#/$defs/f32"
+          }
+        },
+        "zoom": {
+          "type": {
+            "$ref": "#/$defs/f32"
+          }
+        }
+      },
+      "required": [
+        "offset",
+        "move_lerp_speed",
+        "rotate_lerp_speed",
+        "zoom"
+      ],
+      "short_name": "SpawnPlayerCamera",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
     "glam::Affine2": {
       "additionalProperties": false,
       "isComponent": false,

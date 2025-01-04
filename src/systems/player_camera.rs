@@ -1,69 +1,64 @@
-use crate::components::player_camera::{PlayerCamera, PlayerCameraControls, PlayerCameraPivot};
-use bevy::prelude::*;
-use leafwing_input_manager::prelude::*;
+use bevy::{prelude::*, utils::hashbrown::HashMap};
 
-pub fn setup_player_camera(
+use crate::components::player_camera::*;
+
+/// Remove instances of [SpawnPlayerCamera] and spawn an entity with [PlayerCamera],
+/// with their subject set to the entity with [SpawnPlayerCamera].
+pub fn spawn_player_camera(
     mut commands: Commands,
-    mut query: Query<(Entity, &Parent, &mut PlayerCamera, &mut Transform), Added<PlayerCamera>>,
+    mut query: Query<
+        (Entity, Option<&mut PlayerCameraSubject>, &SpawnPlayerCamera),
+        Added<SpawnPlayerCamera>,
+    >,
 ) {
-    info_once!("setup_player_camera");
-    for (newcam, parent, mut camera, mut transform) in query.iter_mut() {
-        info!("Setting up camera entity {}", newcam);
+    for (subject, comp, args) in query.iter_mut() {
+        commands.spawn(PlayerCamera {
+            subject,
+            offset: Vec3::ZERO,
+            move_lerp_speed: args.move_lerp_speed,
+            rotate_lerp_speed: args.rotate_lerp_speed,
+            zoom: args.zoom,
+        });
 
-        let input_map = InputMap::default()
-            .with_dual_axis(PlayerCameraControls::Rotate, MouseMove::default())
-            .with_axis(PlayerCameraControls::Zoom, MouseScrollAxis::Y);
+        commands.entity(subject).remove::<SpawnPlayerCamera>();
 
-        commands.entity(parent.get()).remove_children(&[newcam]);
-
-        let pivot = commands
-            .spawn(PlayerCameraPivot)
-            .insert(transform.clone())
-            .add_child(newcam)
-            .id();
-
-        commands.entity(parent.get()).add_child(pivot);
-
-        camera.pivot = Some(pivot);
-        commands
-            .entity(newcam)
-            .insert(InputManagerBundle::with_map(input_map));
-        transform.translation = Vec3::new(0.0, 0.0, 10.0);
+        if let Some(mut comp) = comp {
+            // Entity is already a subject of another player camera, increment
+            // the reference counter
+            comp.0 += 1;
+        } else {
+            // Entity needs a new ref counter
+            commands.entity(subject).insert(PlayerCameraSubject(1));
+        }
     }
 }
 
-pub fn player_camera_rotate(
-    cam_query: Query<(&ActionState<PlayerCameraControls>, &PlayerCamera)>,
-    mut pivot_query: Query<&mut Transform, With<PlayerCameraPivot>>,
+/// If a [PlayerCameraSubject]'s refcount goes to 0, remove the component.
+pub fn player_camera_subject_check_refcount(
+    mut commands: Commands,
+    query: Query<(Entity, &PlayerCameraSubject), Changed<PlayerCameraSubject>>,
 ) {
-    for (action_state, camera) in cam_query.iter() {
-        let rotation = action_state
-            .dual_axis_data(&PlayerCameraControls::Rotate)
-            .map(|axis| axis.update_pair);
-        if rotation.is_none() {
-            continue;
-        }
-        let rotation = -rotation.unwrap();
-
-        let pivot = camera.pivot.and_then(|ent| pivot_query.get_mut(ent).ok());
-        if pivot.is_none() {
-            continue;
-        }
-        let mut pivot = pivot.unwrap();
-
-        pivot.rotate_local_x(rotation.y.to_radians());
-        pivot.rotate_y(rotation.x.to_radians());
+    for (subject, _) in query.iter().filter(|(_, comp)| comp.0 == 0) {
+        commands.entity(subject).remove::<PlayerCameraSubject>();
     }
 }
 
-pub fn player_camera_zoom(
-    mut cam_query: Query<(&mut Transform, &ActionState<PlayerCameraControls>), With<PlayerCamera>>,
+pub fn move_player_camera(
+    mut query_set: ParamSet<(
+        Query<(Entity, &Transform), With<PlayerCameraSubject>>,
+        Query<(&mut Transform, &PlayerCamera)>,
+    )>,
 ) {
-    for (mut xform, action_state) in cam_query.iter_mut() {
-        let zoom_val = -action_state.value(&PlayerCameraControls::Zoom);
-        if zoom_val != 0.0 {
-            info!("Zoom: {}", zoom_val);
-        }
-        xform.translation.z += zoom_val;
+    let offsets: HashMap<Entity, Vec3> = query_set
+        .p0()
+        .iter()
+        .map(|(subject, xform)| (subject, xform.translation))
+        .collect();
+
+    for (mut xform, pcam) in query_set.p1().iter_mut() {
+        let target_offset = offsets[&pcam.subject] + (xform.back() * pcam.zoom) + pcam.offset;
+        xform.translation = xform
+            .translation
+            .lerp(target_offset, pcam.move_lerp_speed.clamp(0.0, 1.0));
     }
 }

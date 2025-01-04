@@ -3,8 +3,7 @@ use bevy::app::{PluginGroup, PluginGroupBuilder};
 
 pub struct GamePlugins;
 
-impl PluginGroup for GamePlugins
-{
+impl PluginGroup for GamePlugins {
     fn build(self) -> PluginGroupBuilder {
         PluginGroupBuilder::start::<GamePlugins>()
             .add(player::PlayerPlugin)

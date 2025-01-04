@@ -1,11 +1,11 @@
-use bevy::prelude::*;
-
 use crate::plugins::game::GamePlugins;
+use bevy::prelude::*;
 
 // Modules
 
 pub mod components;
 pub mod plugins;
+pub mod resources;
 pub mod systems;
 
 fn main() {

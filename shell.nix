@@ -18,6 +18,7 @@ in
       pkgs.alsa-lib.dev
       pkgs.udev.dev
       pkgs.wayland.dev
+      mold
     ];
     RUSTC_VERSION = overrides.toolchain.channel;
     # https://github.com/rust-lang/rust-bindgen#environment-variables
