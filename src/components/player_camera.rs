@@ -3,9 +3,8 @@ use leafwing_input_manager::prelude::*;
 
 #[derive(Component, Default, Debug)]
 #[require(Camera3d)]
-pub struct PlayerCamera
-{
-    pub pivot: Option<Entity>
+pub struct PlayerCamera {
+    pub pivot: Option<Entity>,
 }
 
 #[derive(Component, Default, Debug)]
