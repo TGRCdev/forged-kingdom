@@ -16651,16 +16651,16 @@
         }
       }
     },
-    "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraControls, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::axislike::Axislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
+    "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::axislike::Axislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
       "isComponent": false,
       "isResource": false,
       "keyType": {
         "type": {
-          "$ref": "#/$defs/forged_kingdom::components::player_camera::PlayerCameraControls"
+          "$ref": "#/$defs/forged_kingdom::components::player_camera::PlayerCameraAction"
         }
       },
-      "long_name": "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraControls, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::axislike::Axislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
-      "short_name": "HashMap<PlayerCameraControls, Vec<Box<dyn Axislike>>, DefaultHashBuilder>",
+      "long_name": "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::axislike::Axislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
+      "short_name": "HashMap<PlayerCameraAction, Vec<Box<dyn Axislike>>, DefaultHashBuilder>",
       "type": "object",
       "typeInfo": "Map",
       "valueType": {
@@ -16669,16 +16669,16 @@
         }
       }
     },
-    "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraControls, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::buttonlike::Buttonlike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
+    "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::buttonlike::Buttonlike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
       "isComponent": false,
       "isResource": false,
       "keyType": {
         "type": {
-          "$ref": "#/$defs/forged_kingdom::components::player_camera::PlayerCameraControls"
+          "$ref": "#/$defs/forged_kingdom::components::player_camera::PlayerCameraAction"
         }
       },
-      "long_name": "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraControls, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::buttonlike::Buttonlike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
-      "short_name": "HashMap<PlayerCameraControls, Vec<Box<dyn Buttonlike>>, DefaultHashBuilder>",
+      "long_name": "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::buttonlike::Buttonlike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
+      "short_name": "HashMap<PlayerCameraAction, Vec<Box<dyn Buttonlike>>, DefaultHashBuilder>",
       "type": "object",
       "typeInfo": "Map",
       "valueType": {
@@ -16687,16 +16687,16 @@
         }
       }
     },
-    "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraControls, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::dualaxislike::DualAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
+    "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::dualaxislike::DualAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
       "isComponent": false,
       "isResource": false,
       "keyType": {
         "type": {
-          "$ref": "#/$defs/forged_kingdom::components::player_camera::PlayerCameraControls"
+          "$ref": "#/$defs/forged_kingdom::components::player_camera::PlayerCameraAction"
         }
       },
-      "long_name": "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraControls, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::dualaxislike::DualAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
-      "short_name": "HashMap<PlayerCameraControls, Vec<Box<dyn DualAxislike>>, DefaultHashBuilder>",
+      "long_name": "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::dualaxislike::DualAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
+      "short_name": "HashMap<PlayerCameraAction, Vec<Box<dyn DualAxislike>>, DefaultHashBuilder>",
       "type": "object",
       "typeInfo": "Map",
       "valueType": {
@@ -16705,16 +16705,16 @@
         }
       }
     },
-    "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraControls, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::tripleaxislike::TripleAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
+    "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::tripleaxislike::TripleAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
       "isComponent": false,
       "isResource": false,
       "keyType": {
         "type": {
-          "$ref": "#/$defs/forged_kingdom::components::player_camera::PlayerCameraControls"
+          "$ref": "#/$defs/forged_kingdom::components::player_camera::PlayerCameraAction"
         }
       },
-      "long_name": "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraControls, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::tripleaxislike::TripleAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
-      "short_name": "HashMap<PlayerCameraControls, Vec<Box<dyn TripleAxislike>>, DefaultHashBuilder>",
+      "long_name": "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::tripleaxislike::TripleAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
+      "short_name": "HashMap<PlayerCameraAction, Vec<Box<dyn TripleAxislike>>, DefaultHashBuilder>",
       "type": "object",
       "typeInfo": "Map",
       "valueType": {
@@ -16723,16 +16723,106 @@
         }
       }
     },
-    "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraControls, leafwing_input_manager::action_state::action_data::ActionData, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
+    "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraAction, leafwing_input_manager::action_state::action_data::ActionData, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
       "isComponent": false,
       "isResource": false,
       "keyType": {
         "type": {
-          "$ref": "#/$defs/forged_kingdom::components::player_camera::PlayerCameraControls"
+          "$ref": "#/$defs/forged_kingdom::components::player_camera::PlayerCameraAction"
         }
       },
-      "long_name": "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraControls, leafwing_input_manager::action_state::action_data::ActionData, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
-      "short_name": "HashMap<PlayerCameraControls, ActionData, DefaultHashBuilder>",
+      "long_name": "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraAction, leafwing_input_manager::action_state::action_data::ActionData, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
+      "short_name": "HashMap<PlayerCameraAction, ActionData, DefaultHashBuilder>",
+      "type": "object",
+      "typeInfo": "Map",
+      "valueType": {
+        "type": {
+          "$ref": "#/$defs/leafwing_input_manager::action_state::action_data::ActionData"
+        }
+      }
+    },
+    "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraPivotAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::axislike::Axislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
+      "isComponent": false,
+      "isResource": false,
+      "keyType": {
+        "type": {
+          "$ref": "#/$defs/forged_kingdom::components::player_camera::PlayerCameraPivotAction"
+        }
+      },
+      "long_name": "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraPivotAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::axislike::Axislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
+      "short_name": "HashMap<PlayerCameraPivotAction, Vec<Box<dyn Axislike>>, DefaultHashBuilder>",
+      "type": "object",
+      "typeInfo": "Map",
+      "valueType": {
+        "type": {
+          "$ref": "#/$defs/alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::axislike::Axislike>>"
+        }
+      }
+    },
+    "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraPivotAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::buttonlike::Buttonlike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
+      "isComponent": false,
+      "isResource": false,
+      "keyType": {
+        "type": {
+          "$ref": "#/$defs/forged_kingdom::components::player_camera::PlayerCameraPivotAction"
+        }
+      },
+      "long_name": "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraPivotAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::buttonlike::Buttonlike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
+      "short_name": "HashMap<PlayerCameraPivotAction, Vec<Box<dyn Buttonlike>>, DefaultHashBuilder>",
+      "type": "object",
+      "typeInfo": "Map",
+      "valueType": {
+        "type": {
+          "$ref": "#/$defs/alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::buttonlike::Buttonlike>>"
+        }
+      }
+    },
+    "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraPivotAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::dualaxislike::DualAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
+      "isComponent": false,
+      "isResource": false,
+      "keyType": {
+        "type": {
+          "$ref": "#/$defs/forged_kingdom::components::player_camera::PlayerCameraPivotAction"
+        }
+      },
+      "long_name": "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraPivotAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::dualaxislike::DualAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
+      "short_name": "HashMap<PlayerCameraPivotAction, Vec<Box<dyn DualAxislike>>, DefaultHashBuilder>",
+      "type": "object",
+      "typeInfo": "Map",
+      "valueType": {
+        "type": {
+          "$ref": "#/$defs/alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::dualaxislike::DualAxislike>>"
+        }
+      }
+    },
+    "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraPivotAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::tripleaxislike::TripleAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
+      "isComponent": false,
+      "isResource": false,
+      "keyType": {
+        "type": {
+          "$ref": "#/$defs/forged_kingdom::components::player_camera::PlayerCameraPivotAction"
+        }
+      },
+      "long_name": "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraPivotAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::tripleaxislike::TripleAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
+      "short_name": "HashMap<PlayerCameraPivotAction, Vec<Box<dyn TripleAxislike>>, DefaultHashBuilder>",
+      "type": "object",
+      "typeInfo": "Map",
+      "valueType": {
+        "type": {
+          "$ref": "#/$defs/alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::tripleaxislike::TripleAxislike>>"
+        }
+      }
+    },
+    "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraPivotAction, leafwing_input_manager::action_state::action_data::ActionData, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
+      "isComponent": false,
+      "isResource": false,
+      "keyType": {
+        "type": {
+          "$ref": "#/$defs/forged_kingdom::components::player_camera::PlayerCameraPivotAction"
+        }
+      },
+      "long_name": "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraPivotAction, leafwing_input_manager::action_state::action_data::ActionData, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
+      "short_name": "HashMap<PlayerCameraPivotAction, ActionData, DefaultHashBuilder>",
       "type": "object",
       "typeInfo": "Map",
       "valueType": {
@@ -20312,15 +20402,25 @@
       "type": "object",
       "typeInfo": "Struct"
     },
-    "forged_kingdom::components::player_camera::PlayerCameraControls": {
+    "forged_kingdom::components::player_camera::PlayerCameraAction": {
       "isComponent": false,
       "isResource": false,
-      "long_name": "forged_kingdom::components::player_camera::PlayerCameraControls",
+      "long_name": "forged_kingdom::components::player_camera::PlayerCameraAction",
       "oneOf": [
-        "Rotate",
         "Zoom"
       ],
-      "short_name": "PlayerCameraControls",
+      "short_name": "PlayerCameraAction",
+      "type": "string",
+      "typeInfo": "Enum"
+    },
+    "forged_kingdom::components::player_camera::PlayerCameraPivotAction": {
+      "isComponent": false,
+      "isResource": false,
+      "long_name": "forged_kingdom::components::player_camera::PlayerCameraPivotAction",
+      "oneOf": [
+        "Rotate"
+      ],
+      "short_name": "PlayerCameraPivotAction",
       "type": "string",
       "typeInfo": "Enum"
     },
@@ -20330,6 +20430,11 @@
       "isResource": false,
       "long_name": "forged_kingdom::components::player_camera::SpawnPlayerCamera",
       "properties": {
+        "cam_dist": {
+          "type": {
+            "$ref": "#/$defs/f32"
+          }
+        },
         "move_lerp_speed": {
           "type": {
             "$ref": "#/$defs/f32"
@@ -20345,7 +20450,7 @@
             "$ref": "#/$defs/f32"
           }
         },
-        "zoom": {
+        "zoom_lerp_speed": {
           "type": {
             "$ref": "#/$defs/f32"
           }
@@ -20355,7 +20460,8 @@
         "offset",
         "move_lerp_speed",
         "rotate_lerp_speed",
-        "zoom"
+        "zoom_lerp_speed",
+        "cam_dist"
       ],
       "short_name": "SpawnPlayerCamera",
       "type": "object",
@@ -21312,15 +21418,15 @@
       "type": "int",
       "typeInfo": "Value"
     },
-    "leafwing_input_manager::action_state::ActionState<forged_kingdom::components::player_camera::PlayerCameraControls>": {
+    "leafwing_input_manager::action_state::ActionState<forged_kingdom::components::player_camera::PlayerCameraAction>": {
       "additionalProperties": false,
       "isComponent": true,
       "isResource": true,
-      "long_name": "leafwing_input_manager::action_state::ActionState<forged_kingdom::components::player_camera::PlayerCameraControls>",
+      "long_name": "leafwing_input_manager::action_state::ActionState<forged_kingdom::components::player_camera::PlayerCameraAction>",
       "properties": {
         "action_data": {
           "type": {
-            "$ref": "#/$defs/bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraControls, leafwing_input_manager::action_state::action_data::ActionData, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
+            "$ref": "#/$defs/bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraAction, leafwing_input_manager::action_state::action_data::ActionData, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
           }
         },
         "disabled": {
@@ -21333,7 +21439,32 @@
         "disabled",
         "action_data"
       ],
-      "short_name": "ActionState<PlayerCameraControls>",
+      "short_name": "ActionState<PlayerCameraAction>",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
+    "leafwing_input_manager::action_state::ActionState<forged_kingdom::components::player_camera::PlayerCameraPivotAction>": {
+      "additionalProperties": false,
+      "isComponent": true,
+      "isResource": true,
+      "long_name": "leafwing_input_manager::action_state::ActionState<forged_kingdom::components::player_camera::PlayerCameraPivotAction>",
+      "properties": {
+        "action_data": {
+          "type": {
+            "$ref": "#/$defs/bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraPivotAction, leafwing_input_manager::action_state::action_data::ActionData, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
+          }
+        },
+        "disabled": {
+          "type": {
+            "$ref": "#/$defs/bool"
+          }
+        }
+      },
+      "required": [
+        "disabled",
+        "action_data"
+      ],
+      "short_name": "ActionState<PlayerCameraPivotAction>",
       "type": "object",
       "typeInfo": "Struct"
     },
@@ -21647,11 +21778,11 @@
       "type": "object",
       "typeInfo": "Struct"
     },
-    "leafwing_input_manager::input_map::InputMap<forged_kingdom::components::player_camera::PlayerCameraControls>": {
+    "leafwing_input_manager::input_map::InputMap<forged_kingdom::components::player_camera::PlayerCameraAction>": {
       "additionalProperties": false,
       "isComponent": true,
       "isResource": true,
-      "long_name": "leafwing_input_manager::input_map::InputMap<forged_kingdom::components::player_camera::PlayerCameraControls>",
+      "long_name": "leafwing_input_manager::input_map::InputMap<forged_kingdom::components::player_camera::PlayerCameraAction>",
       "properties": {
         "associated_gamepad": {
           "type": {
@@ -21660,22 +21791,22 @@
         },
         "axislike_map": {
           "type": {
-            "$ref": "#/$defs/bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraControls, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::axislike::Axislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
+            "$ref": "#/$defs/bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::axislike::Axislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
           }
         },
         "buttonlike_map": {
           "type": {
-            "$ref": "#/$defs/bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraControls, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::buttonlike::Buttonlike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
+            "$ref": "#/$defs/bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::buttonlike::Buttonlike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
           }
         },
         "dual_axislike_map": {
           "type": {
-            "$ref": "#/$defs/bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraControls, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::dualaxislike::DualAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
+            "$ref": "#/$defs/bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::dualaxislike::DualAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
           }
         },
         "triple_axislike_map": {
           "type": {
-            "$ref": "#/$defs/bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraControls, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::tripleaxislike::TripleAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
+            "$ref": "#/$defs/bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::tripleaxislike::TripleAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
           }
         }
       },
@@ -21685,7 +21816,49 @@
         "dual_axislike_map",
         "triple_axislike_map"
       ],
-      "short_name": "InputMap<PlayerCameraControls>",
+      "short_name": "InputMap<PlayerCameraAction>",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
+    "leafwing_input_manager::input_map::InputMap<forged_kingdom::components::player_camera::PlayerCameraPivotAction>": {
+      "additionalProperties": false,
+      "isComponent": true,
+      "isResource": true,
+      "long_name": "leafwing_input_manager::input_map::InputMap<forged_kingdom::components::player_camera::PlayerCameraPivotAction>",
+      "properties": {
+        "associated_gamepad": {
+          "type": {
+            "$ref": "#/$defs/core::option::Option<bevy_ecs::entity::Entity>"
+          }
+        },
+        "axislike_map": {
+          "type": {
+            "$ref": "#/$defs/bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraPivotAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::axislike::Axislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
+          }
+        },
+        "buttonlike_map": {
+          "type": {
+            "$ref": "#/$defs/bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraPivotAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::buttonlike::Buttonlike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
+          }
+        },
+        "dual_axislike_map": {
+          "type": {
+            "$ref": "#/$defs/bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraPivotAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::dualaxislike::DualAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
+          }
+        },
+        "triple_axislike_map": {
+          "type": {
+            "$ref": "#/$defs/bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraPivotAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::tripleaxislike::TripleAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
+          }
+        }
+      },
+      "required": [
+        "buttonlike_map",
+        "axislike_map",
+        "dual_axislike_map",
+        "triple_axislike_map"
+      ],
+      "short_name": "InputMap<PlayerCameraPivotAction>",
       "type": "object",
       "typeInfo": "Struct"
     },

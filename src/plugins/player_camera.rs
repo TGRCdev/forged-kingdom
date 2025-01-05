@@ -1,5 +1,4 @@
 use bevy::prelude::*;
-use blenvy::GltfBlueprintsSet;
 use leafwing_input_manager::prelude::*;
 
 use crate::components::player_camera::*;
@@ -11,15 +10,22 @@ pub struct PlayerCameraPlugin;
 impl Plugin for PlayerCameraPlugin {
     fn build(&self, app: &mut App) {
         // Add plugins
-        app.add_plugins(InputManagerPlugin::<PlayerCameraControls>::default());
+        app.add_plugins((
+            InputManagerPlugin::<PlayerCameraPivotAction>::default(),
+            InputManagerPlugin::<PlayerCameraAction>::default(),
+        ));
 
-        // Register systems
-        app.add_systems(Update, spawn_player_camera)
-            .add_systems(Update, player_camera_subject_check_refcount)
-            .add_systems(Update, (rotate_player_camera, move_player_camera).chain());
+        // Register scheduled systems
+        app.add_systems(Update, (
+            spawn_player_camera.run_if(any_with_component::<SpawnPlayerCamera>),
+            rotate_player_camera_pivot.run_if(any_with_component::<PlayerCameraPivot>),
+            (
+                player_camera_handle_zoom_action,
+                player_camera_lerp_zoom,
+            ).chain().run_if(any_with_component::<PlayerCamera>),
+        ));
 
         // Reflect types
-        app.register_type::<SpawnPlayerCamera>()
-            .register_type::<Vec3>();
+        app.register_type::<SpawnPlayerCamera>();
     }
 }
