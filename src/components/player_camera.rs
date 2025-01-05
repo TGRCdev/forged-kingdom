@@ -11,6 +11,13 @@ pub struct SpawnPlayerCamera {
     pub zoom: f32,
 }
 
+fn camera_input_map() -> InputMap<PlayerCameraControls>
+{
+    InputMap::default()
+        .with_dual_axis(PlayerCameraControls::Rotate, MouseMove::default())
+        .with_axis(PlayerCameraControls::Zoom, MouseScrollAxis::Y)
+}
+
 impl Default for SpawnPlayerCamera {
     fn default() -> Self {
         Self {
@@ -24,6 +31,8 @@ impl Default for SpawnPlayerCamera {
 
 #[derive(Component, Clone, Debug)]
 #[require(Camera3d)]
+#[require(ActionState<PlayerCameraControls>)]
+#[require(InputMap<PlayerCameraControls>(|| camera_input_map()))]
 pub struct PlayerCamera {
     pub subject: Entity,
     pub offset: Vec3,

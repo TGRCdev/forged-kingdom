@@ -8,6 +8,7 @@ edition = "2021"
 [dependencies]
 avian3d = { git = "https://github.com/Jondolf/avian", branch = "main", features = ["simd"] }
 bevy = { version = "0.15.1", features = ["dynamic_linking", "wayland"] }
+bevy-inspector-egui = { git = "https://github.com/jakobhellermann/bevy-inspector-egui", tag = "v0.28.1" }
 blenvy = { git = "https://github.com/kaosat-dev/blenvy", branch = "main" }
 leafwing-input-manager = "0.16.0"
 

@@ -11,5 +11,6 @@ impl PluginGroup for GamePlugins {
             .add_group(avian3d::PhysicsPlugins::default())
             .add(blenvy::BlenvyPlugin::default())
             .add(scene::ScenePlugin)
+            .add(bevy_inspector_egui::quick::WorldInspectorPlugin::default())
     }
 }
