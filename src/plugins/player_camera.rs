@@ -16,14 +16,16 @@ impl Plugin for PlayerCameraPlugin {
         ));
 
         // Register scheduled systems
-        app.add_systems(Update, (
-            spawn_player_camera.run_if(any_with_component::<SpawnPlayerCamera>),
-            rotate_player_camera_pivot.run_if(any_with_component::<PlayerCameraPivot>),
+        app.add_systems(
+            Update,
             (
-                player_camera_handle_zoom_action,
-                player_camera_lerp_zoom,
-            ).chain().run_if(any_with_component::<PlayerCamera>),
-        ));
+                spawn_player_camera.run_if(any_with_component::<SpawnPlayerCamera>),
+                rotate_player_camera_pivot.run_if(any_with_component::<PlayerCameraPivot>),
+                (player_camera_handle_zoom_action, player_camera_lerp_zoom)
+                    .chain()
+                    .run_if(any_with_component::<PlayerCamera>),
+            ),
+        );
 
         // Reflect types
         app.register_type::<SpawnPlayerCamera>();
