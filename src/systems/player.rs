@@ -1,17 +1,40 @@
-use bevy::{prelude::*, utils::HashMap};
+use bevy::prelude::*;
+use bevy_tnua::prelude::*;
+use leafwing_input_manager::prelude::*;
 
-use crate::components::player::Player;
+use crate::components::player::*;
 
 pub fn player_movement(
-    mut query: Query<(Entity, &mut Transform), With<Player>>,
-    time: Res<Time>,
-    mut offsets: Local<HashMap<Entity, Vec3>>,
+    mut query: Query<
+        (
+            &mut TnuaController,
+            &ActionState<PlayerAction>,
+            &InputMap<PlayerAction>,
+        ),
+        With<Player>,
+    >,
 ) {
-    for (player, mut xform) in &mut query {
-        let original_offset = *offsets.entry(player).or_insert_with(|| xform.translation);
+    query
+        .iter_mut()
+        .for_each(|(mut controller, action_state, input_map)| {
+            if let Some(movement) = action_state
+                .dual_axis_data(&PlayerAction::Movement)
+                .map(|data| data.update_pair)
+            {
+                controller.basis(TnuaBuiltinWalk {
+                    desired_velocity: Vec3::new(movement.x, 0.0, movement.y),
+                    ..default()
+                });
+            }
 
-        let offset = Vec3::new(time.elapsed_secs().sin(), time.elapsed_secs().cos(), 0.0);
-
-        xform.translation = original_offset + offset;
-    }
+            if action_state
+                .button_data(&PlayerAction::Jump)
+                .is_some_and(|data| data.fixed_update_state.just_pressed())
+            {
+                controller.action(TnuaBuiltinJump {
+                    height: 5.0,
+                    ..default()
+                });
+            }
+        });
 }

@@ -16651,6 +16651,96 @@
         }
       }
     },
+    "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player::PlayerAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::axislike::Axislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
+      "isComponent": false,
+      "isResource": false,
+      "keyType": {
+        "type": {
+          "$ref": "#/$defs/forged_kingdom::components::player::PlayerAction"
+        }
+      },
+      "long_name": "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player::PlayerAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::axislike::Axislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
+      "short_name": "HashMap<PlayerAction, Vec<Box<dyn Axislike>>, DefaultHashBuilder>",
+      "type": "object",
+      "typeInfo": "Map",
+      "valueType": {
+        "type": {
+          "$ref": "#/$defs/alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::axislike::Axislike>>"
+        }
+      }
+    },
+    "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player::PlayerAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::buttonlike::Buttonlike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
+      "isComponent": false,
+      "isResource": false,
+      "keyType": {
+        "type": {
+          "$ref": "#/$defs/forged_kingdom::components::player::PlayerAction"
+        }
+      },
+      "long_name": "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player::PlayerAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::buttonlike::Buttonlike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
+      "short_name": "HashMap<PlayerAction, Vec<Box<dyn Buttonlike>>, DefaultHashBuilder>",
+      "type": "object",
+      "typeInfo": "Map",
+      "valueType": {
+        "type": {
+          "$ref": "#/$defs/alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::buttonlike::Buttonlike>>"
+        }
+      }
+    },
+    "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player::PlayerAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::dualaxislike::DualAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
+      "isComponent": false,
+      "isResource": false,
+      "keyType": {
+        "type": {
+          "$ref": "#/$defs/forged_kingdom::components::player::PlayerAction"
+        }
+      },
+      "long_name": "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player::PlayerAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::dualaxislike::DualAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
+      "short_name": "HashMap<PlayerAction, Vec<Box<dyn DualAxislike>>, DefaultHashBuilder>",
+      "type": "object",
+      "typeInfo": "Map",
+      "valueType": {
+        "type": {
+          "$ref": "#/$defs/alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::dualaxislike::DualAxislike>>"
+        }
+      }
+    },
+    "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player::PlayerAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::tripleaxislike::TripleAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
+      "isComponent": false,
+      "isResource": false,
+      "keyType": {
+        "type": {
+          "$ref": "#/$defs/forged_kingdom::components::player::PlayerAction"
+        }
+      },
+      "long_name": "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player::PlayerAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::tripleaxislike::TripleAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
+      "short_name": "HashMap<PlayerAction, Vec<Box<dyn TripleAxislike>>, DefaultHashBuilder>",
+      "type": "object",
+      "typeInfo": "Map",
+      "valueType": {
+        "type": {
+          "$ref": "#/$defs/alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::tripleaxislike::TripleAxislike>>"
+        }
+      }
+    },
+    "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player::PlayerAction, leafwing_input_manager::action_state::action_data::ActionData, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
+      "isComponent": false,
+      "isResource": false,
+      "keyType": {
+        "type": {
+          "$ref": "#/$defs/forged_kingdom::components::player::PlayerAction"
+        }
+      },
+      "long_name": "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player::PlayerAction, leafwing_input_manager::action_state::action_data::ActionData, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
+      "short_name": "HashMap<PlayerAction, ActionData, DefaultHashBuilder>",
+      "type": "object",
+      "typeInfo": "Map",
+      "valueType": {
+        "type": {
+          "$ref": "#/$defs/leafwing_input_manager::action_state::action_data::ActionData"
+        }
+      }
+    },
     "bevy_utils::hashbrown::HashMap<forged_kingdom::components::player_camera::PlayerCameraAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::axislike::Axislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
       "isComponent": false,
       "isResource": false,
@@ -20391,11 +20481,23 @@
       "type": "float",
       "typeInfo": "Value"
     },
-    "forged_kingdom::components::player::Player": {
+    "forged_kingdom::components::player::PlayerAction": {
+      "isComponent": false,
+      "isResource": false,
+      "long_name": "forged_kingdom::components::player::PlayerAction",
+      "oneOf": [
+        "Movement",
+        "Jump"
+      ],
+      "short_name": "PlayerAction",
+      "type": "string",
+      "typeInfo": "Enum"
+    },
+    "forged_kingdom::components::player::proxies::Player": {
       "additionalProperties": false,
       "isComponent": true,
       "isResource": false,
-      "long_name": "forged_kingdom::components::player::Player",
+      "long_name": "forged_kingdom::components::player::proxies::Player",
       "properties": {},
       "required": [],
       "short_name": "Player",
@@ -20466,6 +20568,38 @@
       "short_name": "SpawnPlayerCamera",
       "type": "object",
       "typeInfo": "Struct"
+    },
+    "forged_kingdom::utils::proxy::Proxy<avian3d::collision::collider::constructor::ColliderConstructor>": {
+      "isComponent": true,
+      "isResource": false,
+      "items": false,
+      "long_name": "forged_kingdom::utils::proxy::Proxy<avian3d::collision::collider::constructor::ColliderConstructor>",
+      "prefixItems": [
+        {
+          "type": {
+            "$ref": "#/$defs/avian3d::collision::collider::constructor::ColliderConstructor"
+          }
+        }
+      ],
+      "short_name": "Proxy<ColliderConstructor>",
+      "type": "array",
+      "typeInfo": "TupleStruct"
+    },
+    "forged_kingdom::utils::proxy::Proxy<forged_kingdom::components::player::proxies::Player>": {
+      "isComponent": true,
+      "isResource": false,
+      "items": false,
+      "long_name": "forged_kingdom::utils::proxy::Proxy<forged_kingdom::components::player::proxies::Player>",
+      "prefixItems": [
+        {
+          "type": {
+            "$ref": "#/$defs/forged_kingdom::components::player::proxies::Player"
+          }
+        }
+      ],
+      "short_name": "Proxy<Player>",
+      "type": "array",
+      "typeInfo": "TupleStruct"
     },
     "glam::Affine2": {
       "additionalProperties": false,
@@ -21418,6 +21552,31 @@
       "type": "int",
       "typeInfo": "Value"
     },
+    "leafwing_input_manager::action_state::ActionState<forged_kingdom::components::player::PlayerAction>": {
+      "additionalProperties": false,
+      "isComponent": true,
+      "isResource": true,
+      "long_name": "leafwing_input_manager::action_state::ActionState<forged_kingdom::components::player::PlayerAction>",
+      "properties": {
+        "action_data": {
+          "type": {
+            "$ref": "#/$defs/bevy_utils::hashbrown::HashMap<forged_kingdom::components::player::PlayerAction, leafwing_input_manager::action_state::action_data::ActionData, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
+          }
+        },
+        "disabled": {
+          "type": {
+            "$ref": "#/$defs/bool"
+          }
+        }
+      },
+      "required": [
+        "disabled",
+        "action_data"
+      ],
+      "short_name": "ActionState<PlayerAction>",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
     "leafwing_input_manager::action_state::ActionState<forged_kingdom::components::player_camera::PlayerCameraAction>": {
       "additionalProperties": false,
       "isComponent": true,
@@ -21775,6 +21934,48 @@
         "value"
       ],
       "short_name": "ButtonValue",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
+    "leafwing_input_manager::input_map::InputMap<forged_kingdom::components::player::PlayerAction>": {
+      "additionalProperties": false,
+      "isComponent": true,
+      "isResource": true,
+      "long_name": "leafwing_input_manager::input_map::InputMap<forged_kingdom::components::player::PlayerAction>",
+      "properties": {
+        "associated_gamepad": {
+          "type": {
+            "$ref": "#/$defs/core::option::Option<bevy_ecs::entity::Entity>"
+          }
+        },
+        "axislike_map": {
+          "type": {
+            "$ref": "#/$defs/bevy_utils::hashbrown::HashMap<forged_kingdom::components::player::PlayerAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::axislike::Axislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
+          }
+        },
+        "buttonlike_map": {
+          "type": {
+            "$ref": "#/$defs/bevy_utils::hashbrown::HashMap<forged_kingdom::components::player::PlayerAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::buttonlike::Buttonlike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
+          }
+        },
+        "dual_axislike_map": {
+          "type": {
+            "$ref": "#/$defs/bevy_utils::hashbrown::HashMap<forged_kingdom::components::player::PlayerAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::dualaxislike::DualAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
+          }
+        },
+        "triple_axislike_map": {
+          "type": {
+            "$ref": "#/$defs/bevy_utils::hashbrown::HashMap<forged_kingdom::components::player::PlayerAction, alloc::vec::Vec<std::boxed::Box<dyn leafwing_input_manager::user_input::trait_reflection::tripleaxislike::TripleAxislike>>, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
+          }
+        }
+      },
+      "required": [
+        "buttonlike_map",
+        "axislike_map",
+        "dual_axislike_map",
+        "triple_axislike_map"
+      ],
+      "short_name": "InputMap<PlayerAction>",
       "type": "object",
       "typeInfo": "Struct"
     },
