@@ -1,1 +1,0 @@
-Contains definitions of [Resources](https://docs.rs/bevy/latest/bevy/ecs/prelude/trait.Resource.html).

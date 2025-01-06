@@ -1,4 +1,5 @@
-// TODO: Build script to auto-generate these
+//! Contains definitions of [Components](https://docs.rs/bevy/latest/bevy/prelude/trait.Component.html).
+//! Components can have impls, but systems should be defined in `src/systems`.
 
-pub mod player;
-pub mod player_camera;
+// All modules within this directory are automatically exported by build.rs
+include!("_generated_mod.rs");

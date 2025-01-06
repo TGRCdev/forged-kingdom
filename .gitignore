@@ -3,3 +3,6 @@
 
 # Blender
 *.blend1
+
+# Auto-generated mod.rs files
+_generated_mod.rs

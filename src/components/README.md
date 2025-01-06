@@ -1,1 +1,0 @@
-Contains definitions of [Components](https://docs.rs/bevy/latest/bevy/prelude/trait.Component.html). Components can have impls, but systems should be defined in `src/systems`.
