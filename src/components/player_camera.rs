@@ -27,12 +27,13 @@ impl Default for SpawnPlayerCamera {
 /// Child entity of a subject that it's following, handles
 /// rotation for the child [PlayerCamera].
 #[derive(Component, Clone, Debug)]
-#[require(Transform)]
+#[require(Transform, InheritedVisibility)]
 #[require(ActionState<PlayerCameraPivotAction>)]
 #[require(InputMap<PlayerCameraPivotAction>(|| InputMap::default().with_dual_axis(PlayerCameraPivotAction::Rotate, MouseMove::default())))]
 pub struct PlayerCameraPivot {
     pub move_lerp_speed: f32,
     pub rotate_lerp_speed: f32,
+    pub target_rotation: Quat,
 }
 
 /// Child entity of a [PlayerCameraPivot], handles zooming.

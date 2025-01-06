@@ -16,6 +16,7 @@ pub fn spawn_player_camera(
                 PlayerCameraPivot {
                     move_lerp_speed: args.move_lerp_speed,
                     rotate_lerp_speed: args.rotate_lerp_speed,
+                    target_rotation: Quat::IDENTITY,
                 },
                 Transform::from_translation(args.offset),
             ))
@@ -37,47 +38,53 @@ pub fn spawn_player_camera(
     }
 }
 
-/// Rotate the player camera's pivot
-pub fn rotate_player_camera_pivot(
-    mut cam_query: Query<
-        (&mut Transform, &ActionState<PlayerCameraPivotAction>),
-        With<PlayerCameraPivot>,
-    >,
+/// Adjust the [PlayerCameraPivot]
+pub fn player_camera_pivot_handle_rotate_action(
+    mut cam_query: Query<(
+        &mut PlayerCameraPivot,
+        &ActionState<PlayerCameraPivotAction>,
+    )>,
 ) {
-    for (mut cam_xform, action_state) in cam_query.iter_mut() {
-        match action_state
+    cam_query.iter_mut().for_each(|(mut cam, action_state)| {
+        if let Some(rotation) = action_state
             .dual_axis_data(&PlayerCameraPivotAction::Rotate)
-            .map(|data| data.update_pair)
+            .and_then(|data| {
+                Some(data.update_pair).filter(|val| val.is_finite() && *val != Vec2::ZERO)
+            })
         {
-            None | Some(Vec2::ZERO) => (),
-            Some(rotation) => {
-                if rotation.is_finite() {
-                    cam_xform.rotate_y(-rotation.x.to_radians());
-                    cam_xform.rotate_local_x(-rotation.y.to_radians());
-                }
-            }
+            // Rotate around Y axis
+            cam.target_rotation =
+                Quat::from_axis_angle(Vec3::Y, -rotation.x.to_radians()) * cam.target_rotation;
+
+            // Rotate around local X axis
+            cam.target_rotation *= Quat::from_axis_angle(Vec3::X, -rotation.y.to_radians());
         }
-    }
+    });
+}
+
+/// Every frame, lerp the camera pivot's rotation towards the target rotation
+pub fn player_camera_pivot_lerp_rotation(
+    mut cam_query: Query<(&mut Transform, &PlayerCameraPivot)>,
+) {
+    cam_query.iter_mut().for_each(|(mut xform, cam)| {
+        xform.rotation = xform
+            .rotation
+            .lerp(cam.target_rotation, cam.rotate_lerp_speed.clamp(0.0, 1.0));
+    });
 }
 
 /// Adjust the camera's target zoom level when the zoom is changed.
 pub fn player_camera_handle_zoom_action(
     mut cam_query: Query<(&mut PlayerCamera, &ActionState<PlayerCameraAction>)>,
 ) {
-    for (mut cam, action_state) in &mut cam_query {
+    cam_query.iter_mut().for_each(|(mut cam, action_state)| {
         if let Some(zoom_val) = action_state
             .axis_data(&PlayerCameraAction::Zoom)
-            .and_then(|data| {
-                if data.update_value.is_normal() {
-                    Some(data.update_value)
-                } else {
-                    None
-                }
-            })
+            .and_then(|data| Some(data.update_value).filter(|val| val.is_normal()))
         {
             cam.target_dist += zoom_val;
         }
-    }
+    });
 }
 
 /// Every frame, lerp the camera's current Z coordinate to the target

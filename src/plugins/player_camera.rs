@@ -20,7 +20,12 @@ impl Plugin for PlayerCameraPlugin {
             Update,
             (
                 spawn_player_camera.run_if(any_with_component::<SpawnPlayerCamera>),
-                rotate_player_camera_pivot.run_if(any_with_component::<PlayerCameraPivot>),
+                (
+                    player_camera_pivot_handle_rotate_action,
+                    player_camera_pivot_lerp_rotation,
+                )
+                    .chain()
+                    .run_if(any_with_component::<PlayerCameraPivot>),
                 (player_camera_handle_zoom_action, player_camera_lerp_zoom)
                     .chain()
                     .run_if(any_with_component::<PlayerCamera>),
