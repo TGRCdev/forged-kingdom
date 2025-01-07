@@ -1,9 +1,17 @@
 use bevy::prelude::*;
 use bevy_tnua::prelude::*;
 use leafwing_input_manager::prelude::*;
+use bevy_butler::system;
 
 use crate::components::player::*;
+use crate::plugins::player::PlayerPlugin;
 
+#[system(
+    FixedUpdate,
+    PlayerPlugin,
+    run_if(any_with_component::<Player>)
+        .in_set(TnuaUserControlsSystemSet)
+)]
 pub fn player_movement(
     mut query: Query<
         (

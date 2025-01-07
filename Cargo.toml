@@ -16,6 +16,7 @@ bevy-tnua-avian3d = "0.2.0"
 # Git crates
 # Not available on crates.io
 bevy-inspector-egui = { git = "https://github.com/jakobhellermann/bevy-inspector-egui", tag = "v0.28.1" }
+bevy-butler = { git = "https://github.com/TGRCdev/bevy-butler", branch = "main" }
 # Not updated to support 0.15 yet
 blenvy = { git = "https://github.com/kaosat-dev/blenvy", branch = "main" }
 

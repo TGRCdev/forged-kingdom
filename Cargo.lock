@@ -384,6 +384,37 @@ dependencies = [
 ]
 
 [[package]]
+name = "bevy-butler"
+version = "0.1.0"
+source = "git+https://github.com/TGRCdev/bevy-butler?branch=main#0b8f1b2e3b2bb3cce1c7712f5bbe7c4ecd6fb43e"
+dependencies = [
+ "bevy",
+ "bevy-butler-core",
+ "bevy-butler-proc-macro",
+ "inventory",
+]
+
+[[package]]
+name = "bevy-butler-core"
+version = "0.1.0"
+source = "git+https://github.com/TGRCdev/bevy-butler?branch=main#0b8f1b2e3b2bb3cce1c7712f5bbe7c4ecd6fb43e"
+dependencies = [
+ "bevy",
+ "inventory",
+]
+
+[[package]]
+name = "bevy-butler-proc-macro"
+version = "0.1.0"
+source = "git+https://github.com/TGRCdev/bevy-butler?branch=main#0b8f1b2e3b2bb3cce1c7712f5bbe7c4ecd6fb43e"
+dependencies = [
+ "bevy-butler-core",
+ "inventory",
+ "quote",
+ "syn 2.0.95",
+]
+
+[[package]]
 name = "bevy-inspector-egui"
 version = "0.28.1"
 source = "git+https://github.com/jakobhellermann/bevy-inspector-egui?tag=v0.28.1#b203ca5c3f688dddbe7245f87bfcd74acd4f5da3"
@@ -2376,6 +2407,7 @@ version = "0.1.0"
 dependencies = [
  "avian3d",
  "bevy",
+ "bevy-butler",
  "bevy-inspector-egui",
  "bevy-tnua",
  "bevy-tnua-avian3d",
@@ -2762,6 +2794,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e05c02b5e89bff3b946cedeca278abc628fe811e604f027c45a8aa3cf793d0eb"
 dependencies = [
  "libc",
+]
+
+[[package]]
+name = "inventory"
+version = "0.3.16"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e5d80fade88dd420ce0d9ab6f7c58ef2272dde38db874657950f827d4982c817"
+dependencies = [
+ "rustversion",
 ]
 
 [[package]]
@@ -3643,9 +3684,9 @@ dependencies = [
 
 [[package]]
 name = "parry3d"
-version = "0.17.4"
+version = "0.17.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bfe2c6103af4dbaa10469f2929aab8f11c33bd4647ae525174c23a3ecabf7207"
+checksum = "b5d6c81f7d291d5ba572951242779a672f73ed605fe5520045c0bccdb381e913"
 dependencies = [
  "approx",
  "arrayvec",
@@ -3670,9 +3711,9 @@ dependencies = [
 
 [[package]]
 name = "parry3d-f64"
-version = "0.17.4"
+version = "0.17.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fc818b4a4851b7005b6042f6c16b93f7f4e37d17ec459ded6d0885dad61b82cb"
+checksum = "50e1531bc225c14f553f570655ad2d974053343446e88584f1d6416f21cf29e8"
 dependencies = [
  "approx",
  "arrayvec",
@@ -3721,18 +3762,18 @@ dependencies = [
 
 [[package]]
 name = "pin-project"
-version = "1.1.7"
+version = "1.1.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "be57f64e946e500c8ee36ef6331845d40a93055567ec57e8fae13efd33759b95"
+checksum = "1e2ec53ad785f4d35dac0adea7f7dc6f1bb277ad84a680c7afefeae05d1f5916"
 dependencies = [
  "pin-project-internal",
 ]
 
 [[package]]
 name = "pin-project-internal"
-version = "1.1.7"
+version = "1.1.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3c0f5fad0874fc7abcd4d750e76917eaebbecaa2c20bde22e1dbeeba8beb758c"
+checksum = "d56a66c0c55993aa927429d0f8a0abfd74f084e4d9c192cffed01e418d83eefb"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -3741,9 +3782,9 @@ dependencies = [
 
 [[package]]
 name = "pin-project-lite"
-version = "0.2.15"
+version = "0.2.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "915a1e146535de9163f3987b8944ed8cf49a18bb0056bcebcdcece385cece4ff"
+checksum = "3b3cff922bd51709b605d9ead9aa71031d81447142d828eb4a6eba76fe619f9b"
 
 [[package]]
 name = "piper"
@@ -4134,6 +4175,12 @@ dependencies = [
  "linux-raw-sys",
  "windows-sys 0.59.0",
 ]
+
+[[package]]
+name = "rustversion"
+version = "1.0.19"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f7c45b9784283f1b2e7fb61b42047c2fd678ef0960d4f6f1eba131594cc369d4"
 
 [[package]]
 name = "rustybuzz"

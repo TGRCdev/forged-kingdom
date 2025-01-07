@@ -1,12 +1,8 @@
 use bevy::prelude::*;
+use bevy_butler::auto_plugin;
 
 use crate::systems::scene::*;
 
 #[derive(Default, Debug)]
+#[auto_plugin]
 pub struct ScenePlugin;
-
-impl Plugin for ScenePlugin {
-    fn build(&self, app: &mut App) {
-        app.add_systems(Startup, spawn_test_level);
-    }
-}
