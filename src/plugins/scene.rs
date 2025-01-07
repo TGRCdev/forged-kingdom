@@ -1,8 +1,5 @@
-use bevy::prelude::*;
-use bevy_butler::auto_plugin;
-
-use crate::systems::scene::*;
+use bevy_butler::*;
 
 #[derive(Default, Debug)]
-#[auto_plugin]
+#[butler_plugin]
 pub struct ScenePlugin;
