@@ -4,7 +4,7 @@ use bevy_butler::system;
 
 use crate::plugins::scene::ScenePlugin;
 
-#[system(Startup, ScenePlugin)]
+#[system(schedule = Startup, plugin = ScenePlugin)]
 pub fn spawn_test_level(mut commands: Commands) {
     commands.spawn((
         BlueprintInfo::from_path("levels/World.glb"),

@@ -12,9 +12,9 @@ use crate::{
 /// which has a child entity with [PlayerCamera].
 
 #[system(
-    Update,
-    PlayerCameraPlugin,
-    run_if(any_with_component::<SpawnPlayerCamera>)
+    schedule = Update,
+    plugin = PlayerCameraPlugin,
+    transforms = run_if(any_with_component::<SpawnPlayerCamera>)
 )]
 pub fn spawn_player_camera(
     mut commands: Commands,
@@ -50,9 +50,9 @@ pub fn spawn_player_camera(
 
 /// Adjust the [PlayerCameraPivot]
 #[system(
-    Update,
-    PlayerCameraPlugin,
-    run_if(any_with_component::<PlayerCameraPivot>)
+    schedule = Update,
+    plugin = PlayerCameraPlugin,
+    transforms = run_if(any_with_component::<PlayerCameraPivot>)
         .before(player_camera_pivot_lerp_rotation)
 )]
 pub fn player_camera_pivot_handle_rotate_action(
@@ -80,9 +80,9 @@ pub fn player_camera_pivot_handle_rotate_action(
 
 /// Every frame, lerp the camera pivot's rotation towards the target rotation
 #[system(
-    Update,
-    PlayerCameraPlugin,
-    run_if(any_with_component::<PlayerCameraPivot>)
+    schedule = Update,
+    plugin = PlayerCameraPlugin,
+    transforms = run_if(any_with_component::<PlayerCameraPivot>)
         .after(player_camera_pivot_handle_rotate_action)
 )]
 pub fn player_camera_pivot_lerp_rotation(
@@ -97,9 +97,9 @@ pub fn player_camera_pivot_lerp_rotation(
 
 /// Adjust the camera's target zoom level when the zoom is changed.
 #[system(
-    Update,
-    PlayerCameraPlugin,
-    run_if(any_with_component::<PlayerCamera>)
+    schedule = Update,
+    plugin = PlayerCameraPlugin,
+    transforms = run_if(any_with_component::<PlayerCamera>)
         .before(player_camera_lerp_zoom)
 )]
 pub fn player_camera_handle_zoom_action(
@@ -118,9 +118,9 @@ pub fn player_camera_handle_zoom_action(
 /// Every frame, lerp the camera's current Z coordinate to the target
 /// zoom level.
 #[system(
-    Update,
-    PlayerCameraPlugin,
-    run_if(any_with_component::<PlayerCamera>)
+    schedule = Update,
+    plugin = PlayerCameraPlugin,
+    transforms = run_if(any_with_component::<PlayerCamera>)
         .after(player_camera_handle_zoom_action)
 )]
 pub fn player_camera_lerp_zoom(mut cam_query: Query<(&PlayerCamera, &mut Transform)>) {

@@ -386,7 +386,7 @@ dependencies = [
 [[package]]
 name = "bevy-butler"
 version = "0.1.0"
-source = "git+https://github.com/TGRCdev/bevy-butler?branch=main#0b8f1b2e3b2bb3cce1c7712f5bbe7c4ecd6fb43e"
+source = "git+https://github.com/TGRCdev/bevy-butler?branch=main#b68f2830730c28b211f18053ea6b82ea6543de92"
 dependencies = [
  "bevy",
  "bevy-butler-core",
@@ -397,7 +397,7 @@ dependencies = [
 [[package]]
 name = "bevy-butler-core"
 version = "0.1.0"
-source = "git+https://github.com/TGRCdev/bevy-butler?branch=main#0b8f1b2e3b2bb3cce1c7712f5bbe7c4ecd6fb43e"
+source = "git+https://github.com/TGRCdev/bevy-butler?branch=main#b68f2830730c28b211f18053ea6b82ea6543de92"
 dependencies = [
  "bevy",
  "inventory",
@@ -406,7 +406,7 @@ dependencies = [
 [[package]]
 name = "bevy-butler-proc-macro"
 version = "0.1.0"
-source = "git+https://github.com/TGRCdev/bevy-butler?branch=main#0b8f1b2e3b2bb3cce1c7712f5bbe7c4ecd6fb43e"
+source = "git+https://github.com/TGRCdev/bevy-butler?branch=main#b68f2830730c28b211f18053ea6b82ea6543de92"
 dependencies = [
  "bevy-butler-core",
  "inventory",

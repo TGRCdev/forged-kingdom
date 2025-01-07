@@ -7,6 +7,7 @@ pub struct GamePlugins;
 impl PluginGroup for GamePlugins {
     fn build(self) -> PluginGroupBuilder {
         PluginGroupBuilder::start::<Self>()
+            .add(bevy_butler::BevyButlerPlugin)
             .add(player::PlayerPlugin)
             .add(player_camera::PlayerCameraPlugin)
             .add_group(avian3d::PhysicsPlugins::default())

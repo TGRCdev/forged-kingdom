@@ -7,9 +7,9 @@ use crate::components::player::*;
 use crate::plugins::player::PlayerPlugin;
 
 #[system(
-    FixedUpdate,
-    PlayerPlugin,
-    run_if(any_with_component::<Player>)
+    schedule = FixedUpdate,
+    plugin = PlayerPlugin,
+    transforms = run_if(any_with_component::<Player>)
         .in_set(TnuaUserControlsSystemSet)
 )]
 pub fn player_movement(
