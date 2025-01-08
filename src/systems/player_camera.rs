@@ -14,7 +14,7 @@ use crate::{
 #[system(
     schedule = Update,
     plugin = PlayerCameraPlugin,
-    transforms = run_if(any_with_component::<SpawnPlayerCamera>)
+    run_if = any_with_component::<SpawnPlayerCamera>,
 )]
 pub fn spawn_player_camera(
     mut commands: Commands,
@@ -52,8 +52,8 @@ pub fn spawn_player_camera(
 #[system(
     schedule = Update,
     plugin = PlayerCameraPlugin,
-    transforms = run_if(any_with_component::<PlayerCameraPivot>)
-        .before(player_camera_pivot_lerp_rotation)
+    run_if = any_with_component::<PlayerCameraPivot>,
+    before = player_camera_pivot_lerp_rotation,
 )]
 pub fn player_camera_pivot_handle_rotate_action(
     mut cam_query: Query<(
@@ -82,8 +82,8 @@ pub fn player_camera_pivot_handle_rotate_action(
 #[system(
     schedule = Update,
     plugin = PlayerCameraPlugin,
-    transforms = run_if(any_with_component::<PlayerCameraPivot>)
-        .after(player_camera_pivot_handle_rotate_action)
+    run_if = any_with_component::<PlayerCameraPivot>,
+    after = player_camera_pivot_handle_rotate_action,
 )]
 pub fn player_camera_pivot_lerp_rotation(
     mut cam_query: Query<(&mut Transform, &PlayerCameraPivot)>,
@@ -99,8 +99,8 @@ pub fn player_camera_pivot_lerp_rotation(
 #[system(
     schedule = Update,
     plugin = PlayerCameraPlugin,
-    transforms = run_if(any_with_component::<PlayerCamera>)
-        .before(player_camera_lerp_zoom)
+    run_if = any_with_component::<PlayerCamera>,
+    before = player_camera_lerp_zoom,
 )]
 pub fn player_camera_handle_zoom_action(
     mut cam_query: Query<(&mut PlayerCamera, &ActionState<PlayerCameraAction>)>,
@@ -120,8 +120,8 @@ pub fn player_camera_handle_zoom_action(
 #[system(
     schedule = Update,
     plugin = PlayerCameraPlugin,
-    transforms = run_if(any_with_component::<PlayerCamera>)
-        .after(player_camera_handle_zoom_action)
+    run_if = any_with_component::<PlayerCamera>,
+    after = player_camera_handle_zoom_action,
 )]
 pub fn player_camera_lerp_zoom(mut cam_query: Query<(&PlayerCamera, &mut Transform)>) {
     cam_query.iter_mut().for_each(|(cam, mut xform)| {

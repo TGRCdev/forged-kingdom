@@ -9,22 +9,21 @@ use crate::plugins::player::PlayerPlugin;
 #[system(
     schedule = FixedUpdate,
     plugin = PlayerPlugin,
-    transforms = run_if(any_with_component::<Player>)
-        .in_set(TnuaUserControlsSystemSet)
+    run_if = any_with_component::<Player>,
+    in_set = TnuaUserControlsSystemSet,
 )]
 pub fn player_movement(
     mut query: Query<
         (
             &mut TnuaController,
             &ActionState<PlayerAction>,
-            &InputMap<PlayerAction>,
         ),
         With<Player>,
     >,
 ) {
     query
         .iter_mut()
-        .for_each(|(mut controller, action_state, input_map)| {
+        .for_each(|(mut controller, action_state)| {
             if let Some(movement) = action_state
                 .dual_axis_data(&PlayerAction::Movement)
                 .map(|data| data.update_pair)
