@@ -19,7 +19,7 @@ bevy-inspector-egui = { git = "https://github.com/jakobhellermann/bevy-inspector
 # Not updated to support 0.15 yet
 blenvy = { git = "https://github.com/kaosat-dev/blenvy", branch = "main" }
 # Easier to dog-food
-bevy-butler = { git = "https://github.com/TGRCdev/bevy-butler" }
+bevy-butler = { git = "https://github.com/TGRCdev/bevy-butler", features = ["nightly"] }
 
 [patch.'https://github.com/kaosat-dev/blenvy']
 # Some fixes with the blender plugin

@@ -1,3 +1,5 @@
+#![feature(used_with_arg)]
+
 use crate::plugins::game::GamePlugins;
 use bevy::prelude::*;
 
