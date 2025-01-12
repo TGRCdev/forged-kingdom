@@ -397,7 +397,7 @@ dependencies = [
 [[package]]
 name = "bevy-butler"
 version = "0.3.0"
-source = "git+https://github.com/TGRCdev/bevy-butler#f5b2b27509ddd38ac0ec948fa3e17d126017506d"
+source = "git+https://github.com/TGRCdev/bevy-butler#4381e4ab3c54a324e85ab27560116695821b494b"
 dependencies = [
  "bevy-butler-proc-macro",
  "bevy_app",
@@ -410,7 +410,7 @@ dependencies = [
 [[package]]
 name = "bevy-butler-proc-macro"
 version = "0.3.0"
-source = "git+https://github.com/TGRCdev/bevy-butler#f5b2b27509ddd38ac0ec948fa3e17d126017506d"
+source = "git+https://github.com/TGRCdev/bevy-butler#4381e4ab3c54a324e85ab27560116695821b494b"
 dependencies = [
  "inventory",
  "itertools 0.14.0",

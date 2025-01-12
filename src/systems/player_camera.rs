@@ -1,7 +1,7 @@
 use bevy::prelude::*;
 use blenvy::BlueprintInstanceDisabled;
 use leafwing_input_manager::prelude::*;
-use bevy_butler::system;
+use bevy_butler::*;
 
 use crate::{
     components::player_camera::*,
@@ -10,7 +10,6 @@ use crate::{
 
 /// Remove [SpawnPlayerCamera] and spawn a child entity with [PlayerCameraPivot],
 /// which has a child entity with [PlayerCamera].
-
 #[system(
     schedule = Update,
     plugin = PlayerCameraPlugin,
@@ -48,86 +47,75 @@ pub fn spawn_player_camera(
     }
 }
 
-/// Adjust the [PlayerCameraPivot]
-#[system(
-    schedule = Update,
-    plugin = PlayerCameraPlugin,
-    run_if = any_with_component::<PlayerCameraPivot>,
-    before = player_camera_pivot_lerp_rotation,
-)]
-pub fn player_camera_pivot_handle_rotate_action(
-    mut cam_query: Query<(
-        &mut PlayerCameraPivot,
-        &ActionState<PlayerCameraPivotAction>,
-    )>,
-) {
-    cam_query.iter_mut().for_each(|(mut cam, action_state)| {
-        if let Some(rotation) = action_state
-            .dual_axis_data(&PlayerCameraPivotAction::Rotate)
-            .and_then(|data| {
-                Some(data.update_pair).filter(|val| val.is_finite() && *val != Vec2::ZERO)
-            })
-        {
-            // Rotate around Y axis
-            cam.target_rotation =
-                Quat::from_axis_angle(Vec3::Y, -rotation.x.to_radians()) * cam.target_rotation;
+// System set that handles PlayerCameraPivot's movement
+system_set! {
+    (chain, plugin = PlayerCameraPlugin, schedule = Update)
 
-            // Rotate around local X axis
-            cam.target_rotation *= Quat::from_axis_angle(Vec3::X, -rotation.y.to_radians());
-        }
-    });
+    /// Adjust the [PlayerCameraPivot]
+    #[system(run_if = any_with_component::<PlayerCameraPivot>)]
+    pub fn player_camera_pivot_handle_rotate_action(
+        mut cam_query: Query<(
+            &mut PlayerCameraPivot,
+            &ActionState<PlayerCameraPivotAction>,
+        )>,
+    ) {
+        cam_query.iter_mut().for_each(|(mut cam, action_state)| {
+            if let Some(rotation) = action_state
+                .dual_axis_data(&PlayerCameraPivotAction::Rotate)
+                .and_then(|data| {
+                    Some(data.update_pair).filter(|val| val.is_finite() && *val != Vec2::ZERO)
+                })
+            {
+                // Rotate around Y axis
+                cam.target_rotation =
+                    Quat::from_axis_angle(Vec3::Y, -rotation.x.to_radians()) * cam.target_rotation;
+
+                // Rotate around local X axis
+                cam.target_rotation *= Quat::from_axis_angle(Vec3::X, -rotation.y.to_radians());
+            }
+        });
+    }
+
+    /// Every frame, lerp the camera pivot's rotation towards the target rotation
+    #[system(run_if = any_with_component::<PlayerCameraPivot>)]
+    pub fn player_camera_pivot_lerp_rotation(
+        mut cam_query: Query<(&mut Transform, &PlayerCameraPivot)>,
+    ) {
+        cam_query.iter_mut().for_each(|(mut xform, cam)| {
+            xform.rotation = xform
+                .rotation
+                .lerp(cam.target_rotation, cam.rotate_lerp_speed.clamp(0.0, 1.0));
+        });
+    }
 }
 
-/// Every frame, lerp the camera pivot's rotation towards the target rotation
-#[system(
-    schedule = Update,
-    plugin = PlayerCameraPlugin,
-    run_if = any_with_component::<PlayerCameraPivot>,
-    after = player_camera_pivot_handle_rotate_action,
-)]
-pub fn player_camera_pivot_lerp_rotation(
-    mut cam_query: Query<(&mut Transform, &PlayerCameraPivot)>,
-) {
-    cam_query.iter_mut().for_each(|(mut xform, cam)| {
-        xform.rotation = xform
-            .rotation
-            .lerp(cam.target_rotation, cam.rotate_lerp_speed.clamp(0.0, 1.0));
-    });
-}
+system_set! {
+    (plugin = PlayerCameraPlugin, schedule = Update, chain)
 
-/// Adjust the camera's target zoom level when the zoom is changed.
-#[system(
-    schedule = Update,
-    plugin = PlayerCameraPlugin,
-    run_if = any_with_component::<PlayerCamera>,
-    before = player_camera_lerp_zoom,
-)]
-pub fn player_camera_handle_zoom_action(
-    mut cam_query: Query<(&mut PlayerCamera, &ActionState<PlayerCameraAction>)>,
-) {
-    cam_query.iter_mut().for_each(|(mut cam, action_state)| {
-        if let Some(zoom_val) = action_state
-            .axis_data(&PlayerCameraAction::Zoom)
-            .and_then(|data| Some(data.update_value).filter(|val| val.is_normal()))
-        {
-            cam.target_dist += zoom_val;
-        }
-    });
-}
+    /// Adjust the camera's target zoom level when the zoom is changed.
+    #[system(run_if = any_with_component::<PlayerCamera>)]
+    pub fn player_camera_handle_zoom_action(
+        mut cam_query: Query<(&mut PlayerCamera, &ActionState<PlayerCameraAction>)>,
+    ) {
+        cam_query.iter_mut().for_each(|(mut cam, action_state)| {
+            if let Some(zoom_val) = action_state
+                .axis_data(&PlayerCameraAction::Zoom)
+                .and_then(|data| Some(data.update_value).filter(|val| val.is_normal()))
+            {
+                cam.target_dist += zoom_val;
+            }
+        });
+    }
 
-/// Every frame, lerp the camera's current Z coordinate to the target
-/// zoom level.
-#[system(
-    schedule = Update,
-    plugin = PlayerCameraPlugin,
-    run_if = any_with_component::<PlayerCamera>,
-    after = player_camera_handle_zoom_action,
-)]
-pub fn player_camera_lerp_zoom(mut cam_query: Query<(&PlayerCamera, &mut Transform)>) {
-    cam_query.iter_mut().for_each(|(cam, mut xform)| {
-        xform.translation.z = xform
-            .translation
-            .z
-            .lerp(cam.target_dist, cam.lerp_speed.clamp(0.0, 1.0));
-    });
+    /// Every frame, lerp the camera's current Z coordinate to the target
+    /// zoom level.
+    #[system(run_if = any_with_component::<PlayerCamera>)]
+    pub fn player_camera_lerp_zoom(mut cam_query: Query<(&PlayerCamera, &mut Transform)>) {
+        cam_query.iter_mut().for_each(|(cam, mut xform)| {
+            xform.translation.z = xform
+                .translation
+                .z
+                .lerp(cam.target_dist, cam.lerp_speed.clamp(0.0, 1.0));
+        });
+    }
 }
